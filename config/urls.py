@@ -11,11 +11,13 @@ urlpatterns = [
 
     # Django Admin, use {% url 'admin:index' %}
     url(settings.ADMIN_URL, admin.site.urls),
+    url(r'^api-auth/$', include('rest_framework.urls', namespace='rest_framework')),
 
     # User management
     url(r'^users/', include('nomadgram.users.urls', namespace='users')),
+    url(r'^images/', include('nomadgram.images.urls', namespace='images')),
     url(r'^accounts/', include('allauth.urls')),
-
+   
     # Your stuff: custom urls includes go here
 
 
